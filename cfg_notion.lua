@@ -50,7 +50,7 @@ dopath("mod_sp")
 dopath("cfg_notioncore")
 dopath("cfg_kludges")
 dopath("cfg_layouts")
-dopath("cfg_derek")
+dopath("cfg_nik")
 --dopath("cfg_statusbar")
 --dopath("mod_dock")
 
