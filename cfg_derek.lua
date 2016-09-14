@@ -1,18 +1,9 @@
 dopath("app")
 dopath("xinerama_switcher")
 dopath("move_current")
-dopath("move_app_here")
-dopath("bookmarking")
 dopath("mod_notionflux")
 dopath("net_client_list")
 --dopath("min_tabs")
-
-function goto_specific_by_name(name, regionType)
-    local region = ioncore.lookup_region(name, regionType)
-    if region then
-        region:goto()
-    end
-end
 
 function toggle_tab_bar(frame)
     local mode = frame:mode()
@@ -37,47 +28,16 @@ defbindings("WMPlex.toplevel", {
     kpress("F12", "mod_query.query_menu(_, _sub, 'mainmenu', 'Main menu:')"),
     submap(CTRL.."K", {
        kpress("R", "ioncore.restart()"),
-       kpress("G", "app.byclass('gvim', 'Gvim')"),
-       kpress("P", "app.byclass('XMind', 'XMind')"),
        kpress("T", "toggle_tab_bar(_)"),
-       kpress("f", "app.byclass('firefox -P default', 'Firefox')"),
-       kpress("c", "app.byclass('google-chrome', 'Google-chrome')"),
-       kpress("1", "bookmark.goto_bookmark('1')"),
-       kpress("2", "bookmark.goto_bookmark('2')"),
-       kpress("3", "bookmark.goto_bookmark('3')"),
-       kpress("4", "bookmark.goto_bookmark('4')"),
-       kpress("5", "bookmark.goto_bookmark('5')"),
-       kpress("6", "bookmark.goto_bookmark('6')"),
        kpress("plus", "WMPlex.inc_index(_)"),
        kpress("minus", "WMPlex.dec_index(_)"),
     })
-})
-
-defbindings("WScreen", {
-    kpress(CTRL.."F4", "mine(_)"),
-    submap(CTRL.."K", {
-        kpress("Return", "WScreen.switch_next(_)"),
-    }),
-    submap(CTRL.."semicolon", {
-        kpress("G", "goto_specific_by_name('Vim',        'WSGroup')"),
-        kpress("F", "goto_specific_by_name('Browser',    'WSGroup')"),
-        kpress("1", "goto_specific_by_name('Terminals1', 'WSGroup')"),
-        kpress("2", "goto_specific_by_name('Terminals2', 'WSGroup')"),
-    }),
 })
 
 defbindings("WClientWin", {
     submap(CTRL.."K", {
        kpress("Q", "WClientWin.kill(_)"),
        kpress("semicolon", "WClientWin.quote_next(_)"),
-       submap("B", {
-           kpress("1", "bookmark.set_bookmark('1', _)"),
-           kpress("2", "bookmark.set_bookmark('2', _)"),
-           kpress("3", "bookmark.set_bookmark('3', _)"),
-           kpress("4", "bookmark.set_bookmark('4', _)"),
-           kpress("5", "bookmark.set_bookmark('5', _)"),
-           kpress("6", "bookmark.set_bookmark('6', _)"),
-       }),
     })
 })
 
@@ -93,8 +53,8 @@ defbindings("WFrame", {
         kpress("L", "xinerama_switcher(_, 'right')"),
         kpress("H", "xinerama_switcher(_, 'left')"),
         kpress("J", "ioncore.goto_next(_, 'down')"),
-        kpress("N", "WFrame.switch_next(_)"),
-        kpress("M", "WFrame.switch_prev(_)"),
+        kpress("N", "WFrame.switch_prev(_)"),
+        kpress("M", "WFrame.switch_next(_)"),
         kpress("U", "WFrame.set_mode(_, 'floating')"),
         kpress("Y", "WFrame.set_mode(_, 'tiled')"),
         kpress("0", "WFrame.begin_kbresize(_)"),
@@ -111,16 +71,6 @@ defbindings("WTiling", {
         kpress("Down", "move_current.move(_, 'down')"),
         kpress("Left", "move_current.move(_, 'left')"),
         kpress("Right", "move_current.move(_, 'right')"),
-        submap("Z", {
-            kpress("F", "moveapp.byclass(_, 'Firefox')"),
-            kpress("G", "moveapp.byclass(_, 'Gvim')"),
-            kpress("1", "bookmark.move_here(_, '1')"),
-            kpress("2", "bookmark.move_here(_, '2')"),
-            kpress("3", "bookmark.move_here(_, '3')"),
-            kpress("4", "bookmark.move_here(_, '4')"),
-            kpress("5", "bookmark.move_here(_, '5')"),
-            kpress("6", "bookmark.move_here(_, '6')"),
-        })
     })
 })
 

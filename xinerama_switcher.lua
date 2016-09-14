@@ -39,13 +39,13 @@ function xinerama_switcher(region, direction)
             if obj_is(newscreen, "WRootWin") then
                 newscreen = ioncore.goto_next_screen()
             end
-            newscreen:current():current():farthest('right'):goto()
+            newscreen:current():current():farthest('right')
         elseif direction == "right" then
             local newscreen = ioncore.goto_next_screen()
             if obj_is(newscreen, "WRootWin") then
                 newscreen = ioncore.goto_prev_screen()
             end
-            newscreen:current():current():farthest('left'):goto()
+            newscreen:current():current():farthest('left')
         end
     else
         ioncore.goto_next(region, direction)
