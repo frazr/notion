@@ -3,7 +3,6 @@ dopath("xinerama_switcher")
 dopath("move_current")
 dopath("mod_notionflux")
 dopath("net_client_list")
---dopath("min_tabs")
 
 function toggle_tab_bar(frame)
     local mode = frame:mode()
