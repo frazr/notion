@@ -15,6 +15,7 @@ end
 
 CTRL="Control+"
 META="Mod1+"
+META2="Mod4+"
 
 ioncore.set {
   dblclick_delay=250,
@@ -22,7 +23,13 @@ ioncore.set {
 }
 
 defbindings("WMPlex.toplevel", {
+    kpress(META2.."R", "ioncore.exec_on(_, 'dmenu_run')"),
+    kpress(META2.."Tab", "mod_menu.grabmenu(_, _sub, 'focuslist')"),
+})
+
+defbindings("WMPlex.toplevel", {
     kpress("F2", "ioncore.exec_on(_, 'xterm')"),
+    kpress("F5", nil),
     kpress("F6", "ioncore.create_ws(_)"),
     kpress("F12", "mod_query.query_menu(_, _sub, 'mainmenu', 'Main menu:')"),
     submap(CTRL.."K", {
