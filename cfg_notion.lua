@@ -1,6 +1,3 @@
--- Terminal emulator
-XTERM="xterm"
-
 -- Some basic settings
 ioncore.set{
     -- Maximum delay between clicks in milliseconds to be considered a
@@ -44,15 +41,16 @@ ioncore.set{
 dopath("mod_query")
 dopath("mod_menu")
 dopath("mod_tiling")
---dopath("mod_statusbar")
 dopath("mod_xinerama")
 dopath("mod_sp")
+dopath("nik_functions")
 dopath("cfg_notioncore")
 dopath("cfg_kludges")
 dopath("cfg_layouts")
 dopath("cfg_nik")
---dopath("cfg_statusbar")
---dopath("mod_dock")
+
+-- Add functionality on hooks here
+--dopath("add_hooks")
 
 -- Load configuration of the Ion 'core'. Most bindings are here.
 --dopath("cfg_notioncore")
@@ -71,16 +69,3 @@ dopath("cfg_nik")
 --dopath("mod_statusbar")
 --dopath("mod_dock")
 --dopath("mod_sp")
-
-
---
--- Common customisations
---
-
--- Uncommenting the following lines should get you plain-old-menus instead
--- of query-menus.
-
---defbindings("WScreen", {
---    kpress(ALTMETA.."F12", "mod_menu.menu(_, _sub, 'mainmenu', {big=true})"),
---})
---
