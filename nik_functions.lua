@@ -23,3 +23,17 @@ function os.customexec(cmd, raw)
     s = string.gsub(s, '[\n\r]+', ' ')
     return s
 end
+
+function xdo_command(type)
+  local str=""
+  if type == "dump" then str="U= P= H= DB= mysql-dump -u$U -p$P -h$H $DB > dump.sql"
+  end
+  if type == "h_con" then str="mysql -u helpa -p$MYSQL_PASSWORD -hdatabase helpa"
+  end
+  
+  if type == "w_con" then str="mysql -u wondr -p$MYSQL_PASSWORD -hdatabase wondr"
+  end
+  if type == "o_con" then str="mysql -u nik -p -hdb.oashosting.net"
+  end
+  ioncore.exec("printf '" .. str .. "' | xsel -i && xdotool selectwindow click 2 && stty echo")
+end

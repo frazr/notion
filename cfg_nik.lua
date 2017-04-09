@@ -54,10 +54,19 @@ defmenu("ssh", {
   menuentry("s03", "ioncore.exec(ssh('s03'))"),
 })
 
+defmenu("mysql", {
+  menuentry("dump", "xdo_command('dump')"),
+  menuentry("helpa", "xdo_command('h_con')"),
+  menuentry("wondr", "xdo_command('w_con')"),
+  menuentry("oashosting", "xdo_command('o_con')"),
+})
+
+
 defmenu("custommenu", {
   submenu("Kubectl", "kubectl"),
   submenu("Session", "session"),
   submenu("Ssh", "ssh"),
+  submenu("Mysql", "mysql"),
 })
 
 
