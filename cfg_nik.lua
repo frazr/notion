@@ -76,9 +76,8 @@ defbindings("WScreen", {
 })
 
 defbindings("WMPlex.toplevel", {
-  kpress(META2.."R", "ioncore.exec_on(_, 'dmenu_run')"),
-  kpress(META2.."P", "mod_menu.grabmenu(_, _sub, 'ctxmenu')"),
-  kpress(META2.."Tab", "mod_menu.grabmenu(_, _sub, 'focuslist')"),
+  kpress(META2.."R", "ioncore.exec('rofi -show run')"),
+  kpress(META2.."P", "ioncore.exec('rofi -show window')"),
   kpress(META2.."Return", "ioncore.exec_on(_, XTERM)"),
   kpress("F1", "mod_query.query_menu(_, _sub, 'custommenu', 'Shortcut:')"),
   kpress("F2", "ioncore.exec_on(_, XTERM)"),
